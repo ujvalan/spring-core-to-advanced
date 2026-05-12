@@ -1,0 +1,52 @@
+package com.telusko.SpringDataJpaProject.service;
+
+
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.stereotype.Service;
+
+import com.telusko.SpringDataJpaProject.model.Vaccine;
+import com.telusko.SpringDataJpaProject.repo.IVaccineRepo;
+import com.telusko.SpringDataJpaProject.view.View;
+
+@Service
+public class VaccineService implements IVaccineService {
+    
+	@Autowired
+	private IVaccineRepo repo;
+
+	public void setRepo(IVaccineRepo repo) {
+		this.repo=repo;
+	}
+
+	@Override
+	public <T extends View> List<T> searchByCostLessThan(Double cost, Class<T> cls) {
+		// TODO Auto-generated method stub
+		return repo.findByCostLessThan(cost, cls);
+	}
+
+	
+	
+
+	
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+}
